@@ -1,0 +1,2 @@
+// initApp
+// initRouter
