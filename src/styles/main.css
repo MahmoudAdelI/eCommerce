@@ -1,1 +1,12 @@
 /* import all css files here */
+
+/* 1. Import Fonts first so they start loading immediately */
+@import url("./base/fonts.css");
+
+/* 2. Import Variables */
+@import url("./base/variables.css");
+
+body {
+  font-family: var(--font-main);
+  font-weight: var(--weight-regular);
+}

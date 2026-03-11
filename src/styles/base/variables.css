@@ -21,4 +21,13 @@
 
   /* Borders */
   --border-light: #e0e0e0; /* Very Light Gray - testimonial cards, buttons, section dividers */
+
+  /* Font Family */
+  --font-main: "Satoshi", Helvetica, Arial, sans-serif;
+
+  /* Font Weights */
+  --weight-regular: 300;
+  --weight-medium: 500;
+  --weight-bold: 700;
+  --weight-black: 900;
 }
