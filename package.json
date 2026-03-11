@@ -4,10 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite"
   },
   "keywords": [],
   "author": "Mahmou Adel",
   "license": "ISC",
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "vite": "^7.3.1"
+  }
 }
