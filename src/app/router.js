@@ -1,5 +1,5 @@
 // routing
-export const routes = {
+const routes = {
   "/": () => import("../pages/HomePage.js"),
   "/products": () => import("../pages/ProductsPage.js"),
 };
