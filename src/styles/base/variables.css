@@ -1,0 +1,24 @@
+:root {
+  /* Backgrounds */
+  --bg-primary: #ffffff; /* White - main background, buttons */
+  --bg-secondary: #f0f0f0; /* Light Gray - footer, bottom sections */
+  --bg-dark: #000000; /* Black - newsletter section */
+  --bg-product: #f0eeed; /* Off-White/Gray - background for the product images */
+
+  /* Typography */
+  --text-primary: #000000; /* Black - headings, product titles, active prices */
+  --text-secondary: #666666; /* Dark Gray - paragraph text, reviews, footer links */
+  --text-placeholder: #a0a0a0; /* Light Gray - email input placeholder */
+  --text-muted: #999999; /* Medium Gray - strikethrough prices, rating fractions */
+
+  /* Accents, Badges & UI */
+  --accent-star: #ffc633; /* Gold/Yellow - 5-star rating icons */
+  --accent-success: #01ab31; /* Green - verified customer checkmark */
+
+  /* Discount Pill Colors */
+  --bg-discount: #ffebeb; /* Light Red/Pink - background for discount percentage pill */
+  --text-discount: #ff3333; /* Bright Red - text for discount percentage (e.g., -20%) */
+
+  /* Borders */
+  --border-light: #e0e0e0; /* Very Light Gray - testimonial cards, buttons, section dividers */
+}
