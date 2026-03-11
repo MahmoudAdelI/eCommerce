@@ -8,19 +8,30 @@ export const navigateTo = async (url) => {
   renderPage();
 };
 
+let currentPage = null;
 export const renderPage = async () => {
-  const root = document.getElementById("view");
-  root.innerHTML = `<div class="loader">Loading…</div>`;
+  // cleanup previous component side effects (prevent memory leaks)
+  currentPage?.cleanup();
 
+  // select view and render a loader
+  const view = document.getElementById("view");
+  view.innerHTML = `<div class="loader">Loading…</div>`;
+
+  // capture the pathname and import page module
   const path = window.location.pathname;
   const importFn =
     routes[path] || (() => import("../pages/NotFound/NotFound.js"));
-
   const module = await importFn();
-  const pageContent = await module.default();
 
-  root.innerHTML = "";
-  root.appendChild(pageContent);
+  // save the current page till next render for cleanup
+  currentPage = new module.default();
+
+  // get the page content
+  const pageContent = await currentPage.render();
+
+  // clean DOM and render new page content
+  view.innerHTML = "";
+  view.appendChild(pageContent);
 };
 
 export const initRouter = async () => {
@@ -33,5 +44,6 @@ export const initRouter = async () => {
       navigateTo(link.href);
     }
   });
+
   renderPage();
 };
