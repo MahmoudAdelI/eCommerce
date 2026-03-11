@@ -5,8 +5,18 @@
 
 /* 2. Import Variables */
 @import url("./base/variables.css");
+@import url("../components/navBar/navBar.styles.css");
+@import url("../pages/NotFound/NotFound.styles.css");
 
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 body {
   font-family: var(--font-main);
   font-weight: var(--weight-regular);
+  color: var(--text-primary);
+  max-width: 1200px;
+  margin: 0 auto;
 }

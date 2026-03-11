@@ -1,6 +1,6 @@
 // routing
 const routes = {
-  "/": () => import("../pages/HomePage.js"),
+  "/": () => import("../pages/Home/Home.js"),
   "/products": () => import("../pages/ProductsPage.js"),
 };
 
@@ -10,11 +10,12 @@ export const navigateTo = async (url) => {
 };
 
 export const renderPage = async () => {
-  const root = document.getElementById("root");
+  const root = document.getElementById("view");
   root.innerHTML = `<div class="loader">Loading…</div>`;
 
   const path = window.location.pathname;
-  const importFn = routes[path] || (() => import("../pages/NotFoundPage.js"));
+  const importFn =
+    routes[path] || (() => import("../pages/NotFound/NotFound.js"));
 
   const module = await importFn();
   const pageContent = await module.default();

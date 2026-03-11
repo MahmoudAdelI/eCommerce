@@ -30,3 +30,9 @@ export default function HomePage() {
 }
 
 */
+
+export default function Home() {
+  const div = document.createElement("div");
+  div.innerHTML = `Home`;
+  return div;
+}

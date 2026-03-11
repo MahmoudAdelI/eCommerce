@@ -1,0 +1,8 @@
+.not-found {
+  height: 80vh;
+  display: grid;
+  place-items: center;
+  font-weight: var(--weight-black);
+  color: var(--text-secondary);
+  font-size: 2rem;
+}
