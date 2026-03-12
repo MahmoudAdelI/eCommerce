@@ -1,4 +1,4 @@
-import Page from "../../Page.js";
+import Page from "../../utils/Page.js";
 
 export default class NotFound extends Page {
   render() {

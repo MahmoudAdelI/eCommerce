@@ -3,9 +3,7 @@
   align-items: center;
   justify-content: space-between;
 
-  padding: 16px;
-
-  border-bottom: 1px solid var(--border-light);
+  padding: 1rem 0;
   background: var(--bg-primary);
 }
 
@@ -19,7 +17,7 @@
 .navbar__menu {
   display: flex;
   list-style: none;
-  gap: 2rem;
+  gap: 2.5rem;
 }
 
 .navbar__link,

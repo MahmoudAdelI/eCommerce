@@ -5,18 +5,33 @@
 
 /* 2. Import Variables */
 @import url("./base/variables.css");
+/* 2. Import Components styles */
 @import url("../components/navBar/navBar.styles.css");
 @import url("../pages/NotFound/NotFound.styles.css");
+@import url("../pages/Home/components/hero/hero.styles.css");
 
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
+
 body {
   font-family: var(--font-main);
   font-weight: var(--weight-regular);
   color: var(--text-primary);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.container {
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.heading {
+  font-weight: var(--weight-black);
+  text-transform: uppercase;
+  font-size: 3.5rem;
+  line-height: 1;
 }
