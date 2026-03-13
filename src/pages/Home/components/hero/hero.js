@@ -17,7 +17,7 @@ export default function hero() {
             to bring out your individuality and cater to your sense of style.
             </p>
 
-            ${button("button--hero", "shop now")}
+            ${button("shop now", "button--hero")}
             <div class="hero__metrics">
             <div class="hero__metric">
                 <h2 class="hero__metric-number">200+</h2>
@@ -33,8 +33,8 @@ export default function hero() {
             </div>
             </div>
         </div>
-        <div class="hero__image-container">
-            <img src="./public//images/1.jpg" alt="hero-image" class="hero__image">
+        <div class="hero__image">
+            
         </div>
         </div>
         ${ribbon()}

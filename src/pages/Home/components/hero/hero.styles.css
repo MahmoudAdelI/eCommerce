@@ -64,15 +64,14 @@
   color: var(--text-secondary);
 }
 
-.hero__image-container {
-  height: 100%;
-  width: 50%;
-  overflow: hidden;
-}
-
 .hero__image {
   height: 100%;
-  object-fit: cover;
+  width: 50%;
+  background-image: url("../../../../../public/images/1.jpg");
+  background-position: center;
+  background-size: cover;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
 }
 
 .hero__ribbon {

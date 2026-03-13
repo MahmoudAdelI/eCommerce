@@ -1,0 +1,89 @@
+.category-section {
+  padding: 3rem;
+  background-color: var(--bg-product);
+  text-align: center;
+  border-radius: 2rem;
+}
+
+.category__title {
+  font-size: 3.5rem;
+  font-weight: var(--weight-black);
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+
+.category__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 2rem;
+  margin: 0 auto;
+}
+
+.category__card {
+  position: relative;
+  border-radius: 1.4rem;
+  overflow: hidden;
+  cursor: pointer;
+  background-size: cover;
+  background-position: center;
+  min-height: 400px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.category__card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* wide cards */
+.category__card:nth-child(1),
+.category__card:nth-child(4) {
+  grid-column: span 2;
+}
+.category__card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.45)
+  );
+  transition: opacity 0.3s ease;
+}
+
+.category__card:hover::after {
+  opacity: 0.5;
+}
+
+.category__card--shoes {
+  background-image: url("../../../../../public/images/categories/shoes.webp");
+}
+
+.category__card--watches {
+  background-image: url("../../../../../public/images/categories/watches.webp");
+}
+
+.category__card--glasses {
+  background-image: url("../../../../../public/images/categories/glasses.webp");
+}
+
+.category__card--sports {
+  background-image: url("../../../../../public/images/categories/sports.webp");
+}
+
+.category__card-title {
+  position: absolute;
+  bottom: 1.4rem;
+  left: 1.4rem;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: var(--weight-black);
+  text-transform: uppercase;
+  z-index: 1;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}

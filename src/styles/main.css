@@ -7,10 +7,12 @@
 @import url("./base/variables.css");
 /* 2. Import Components styles */
 @import url("../components/button/button.styles.css");
+@import url("../components/grid/grid.css");
 @import url("../components/navBar/navBar.styles.css");
+@import url("../components/productCard/productCard.styles.css");
 @import url("../pages/NotFound/NotFound.styles.css");
 @import url("../pages/Home/components/hero/hero.styles.css");
-@import url("../components/productCard/productCard.styles.css");
+@import url("../pages/Home/components/categoryGrid/categoryGrid.styles.css");
 
 * {
   padding: 0;
@@ -42,4 +44,10 @@ body {
 .separator-label {
   text-align: center;
   margin: 3rem 0;
+}
+
+.hr {
+  height: 1px;
+  background-color: var(--border-light);
+  margin: 3rem auto;
 }
