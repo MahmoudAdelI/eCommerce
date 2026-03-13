@@ -6,9 +6,11 @@
 /* 2. Import Variables */
 @import url("./base/variables.css");
 /* 2. Import Components styles */
+@import url("../components/button/button.styles.css");
 @import url("../components/navBar/navBar.styles.css");
 @import url("../pages/NotFound/NotFound.styles.css");
 @import url("../pages/Home/components/hero/hero.styles.css");
+@import url("../components/productCard/productCard.styles.css");
 
 * {
   padding: 0;
@@ -21,12 +23,13 @@ body {
   font-weight: var(--weight-regular);
   color: var(--text-primary);
   margin: 0 auto;
-  text-align: center;
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1440px;
   margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .heading {
@@ -34,4 +37,9 @@ body {
   text-transform: uppercase;
   font-size: 3.5rem;
   line-height: 1;
+}
+
+.separator-label {
+  text-align: center;
+  margin: 3rem 0;
 }

@@ -1,0 +1,109 @@
+.product-card {
+  width: 100%;
+  max-width: 15rem;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  margin: 0 auto;
+  text-align: left;
+}
+.product-card:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.product-card__image-wrapper {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background-color: var(--bg-product);
+  overflow: hidden;
+}
+
+.product-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-card__image {
+  transform: scale(1.05);
+}
+
+.product-card__no-image {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-product);
+  color: var(--text-secondary);
+  font-size: 1.2rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+.product-card__content {
+  padding: 0.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.product-card__title {
+  text-overflow: ellipsis;
+}
+
+.product-card__rating {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.product-card__stars {
+  color: var(--accent-star);
+  font-size: 1rem;
+  letter-spacing: 2px;
+}
+
+.product-card__rating-count {
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  font-weight: var(--weight-medium);
+}
+
+.product-card__price {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.product-card__price-current {
+  font-size: 1.25rem;
+  font-weight: var(--weight-black);
+}
+
+.product-card__price-old {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  font-weight: var(--weight-bold);
+  text-decoration: line-through;
+}
+
+.product-card__discount {
+  background-color: var(--bg-discount);
+  color: var(--text-discount);
+  font-size: 0.75rem;
+  font-weight: var(--weight-bold);
+  padding: 0.25rem 0.5rem;
+  border-radius: 2rem;
+}

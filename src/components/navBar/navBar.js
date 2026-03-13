@@ -1,6 +1,6 @@
 export default function navBar() {
   return `
-   <nav class="navbar container">
+   <nav class="container navbar">
      <a href="/" class="navbar__logo"> SHOP.CO </a>
 
      <ul class="navbar__menu">
