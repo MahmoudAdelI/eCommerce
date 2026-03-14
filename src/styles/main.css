@@ -10,6 +10,7 @@
 @import url("../components/grid/grid.css");
 @import url("../components/navBar/navBar.styles.css");
 @import url("../components/productCard/productCard.styles.css");
+@import url("../components/review/reviewCard.styles.css");
 @import url("../pages/NotFound/NotFound.styles.css");
 @import url("../pages/Home/components/hero/hero.styles.css");
 @import url("../pages/Home/components/categoryGrid/categoryGrid.styles.css");
@@ -28,16 +29,15 @@ body {
 }
 
 .container {
-  max-width: 1440px;
-  margin: 0 auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 7rem;
 }
 
 .heading {
   font-weight: var(--weight-black);
   text-transform: uppercase;
-  font-size: 3.5rem;
+  font-size: 3.2rem;
   line-height: 1;
 }
 
