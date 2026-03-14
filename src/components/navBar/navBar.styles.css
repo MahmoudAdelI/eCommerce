@@ -1,31 +1,31 @@
 .navbar {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 1.5rem 0;
+  align-items: center;
   background: var(--bg-primary);
+  padding: 1.5rem 0;
 }
 
 .navbar__logo {
-  font-size: 1.8rem;
-  font-weight: var(--weight-black);
-  text-decoration: none;
   color: inherit;
+  font-weight: var(--weight-black);
+  font-size: 1.8rem;
+  text-decoration: none;
 }
 
 .navbar__menu {
   display: flex;
-  list-style: none;
   gap: 2.5rem;
+  list-style: none;
 }
 
 .navbar__link,
 .navbar__cart-link,
 .navbar__profile-link {
-  text-decoration: none;
-  color: var(--text-secondary);
   transition: color 0.2s ease;
   cursor: pointer;
+  color: var(--text-secondary);
+  text-decoration: none;
 }
 
 .navbar__link:hover,
@@ -40,19 +40,19 @@
 
 .navbar__search {
   display: flex;
+  flex-grow: 1;
   gap: 0.5rem;
+  border-radius: 1.2rem;
   background-color: var(--bg-secondary);
   padding: 0.5rem 1rem;
-  border-radius: 1.2rem;
-  flex-grow: 1;
   max-width: 500px;
 }
 
 .navbar__search-icon {
-  color: var(--text-secondary);
   border-right: 1px solid;
   border-color: var(--text-secondary);
   padding-right: 0.5rem;
+  color: var(--text-secondary);
 }
 
 .navbar__search-form {
@@ -60,11 +60,11 @@
 }
 
 .navbar__search-input {
+  outline: none;
   border: none;
   background-color: transparent;
-  outline: none;
-  caret-color: var(--text-secondary);
   width: 100%;
+  caret-color: var(--text-secondary);
 }
 
 .navbar__actions {

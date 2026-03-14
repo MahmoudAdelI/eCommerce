@@ -1,4 +1,5 @@
 // gets root element and apply golbal layouts like (navbar)
+import footer from "../components/footer/footer..js";
 import navBar from "../components/navBar/navBar.js";
 export const initApp = () => {
   console.log("test");
@@ -6,5 +7,6 @@ export const initApp = () => {
   root.innerHTML = `
         ${navBar()}
         <main id="view"></main>
+        ${footer()}
     `;
 };

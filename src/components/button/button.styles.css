@@ -1,16 +1,16 @@
 .button {
   display: block;
-  width: 100%;
-  max-width: 14rem;
-  padding: 1.2rem 2rem;
+  transition: 0.2s ease;
+  cursor: pointer;
   margin: 3rem auto;
-  background-color: var(--bg-primary);
   border: 1px solid var(--border-light);
   border-radius: 1.8rem;
-  text-align: center;
+  background-color: var(--bg-primary);
+  padding: 1.2rem 2rem;
+  width: 100%;
+  max-width: 14rem;
   font-weight: var(--weight-medium);
-  cursor: pointer;
-  transition: 0.2s ease;
+  text-align: center;
 }
 
 .button:hover {

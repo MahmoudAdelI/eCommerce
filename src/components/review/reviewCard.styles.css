@@ -1,12 +1,6 @@
 .reviews-container {
   display: flex;
   gap: 2rem;
-
-  overflow-x: scroll;
-  scroll-behavior: smooth;
-
-  padding: 2rem;
-
   mask-image: linear-gradient(
     to right,
     transparent 0,
@@ -14,6 +8,12 @@
     black calc(100% - 7rem),
     transparent 100%
   );
+  margin-bottom: 2rem;
+
+  padding: 2rem;
+
+  overflow-x: scroll;
+  scroll-behavior: smooth;
 }
 
 .reviews-container::-webkit-scrollbar {
@@ -21,15 +21,14 @@
 }
 
 .review-card {
-  flex: 0 0 20rem;
-
   display: flex;
+  flex: 0 0 20rem;
   flex-direction: column;
   gap: 0.4rem;
-  max-height: 18rem;
-  padding: 0.6rem 1.2rem;
   border: 1px solid var(--border-light);
   border-radius: 0.75rem;
+  padding: 0.6rem 1.2rem;
+  max-height: 18rem;
 
   scroll-snap-align: start;
 }
@@ -53,7 +52,7 @@
 }
 
 .review-card__review {
+  flex: 1;
   color: var(--text-secondary);
   line-height: 1.6;
-  flex: 1;
 }

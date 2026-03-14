@@ -1,8 +1,8 @@
 .not-found {
-  height: 80vh;
   display: grid;
   place-items: center;
-  font-weight: var(--weight-black);
+  height: 80vh;
   color: var(--text-secondary);
+  font-weight: var(--weight-black);
   font-size: 2rem;
 }

@@ -1,12 +1,12 @@
 .hero {
-  width: 100%;
-  background-color: var(--bg-secondary);
   margin-bottom: 2rem;
+  background-color: var(--bg-secondary);
+  width: 100%;
 }
 .hero__container {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   height: 70vh;
 }
 
@@ -19,9 +19,9 @@
 
 .hero__heading {
   font-weight: var(--weight-black);
-  text-transform: uppercase;
   font-size: 3.5rem;
   line-height: 1;
+  text-transform: uppercase;
 }
 
 .hero__paragraph {
@@ -29,10 +29,10 @@
 }
 
 .button--hero {
-  background-color: var(--bg-dark);
-  color: white;
-  max-width: 14rem;
   margin: 0;
+  background-color: var(--bg-dark);
+  max-width: 14rem;
+  color: white;
 }
 
 .hero__metrics {
@@ -55,23 +55,23 @@
   padding-right: 2rem;
 }
 .hero__metric-number {
-  font-size: 2rem;
   font-weight: var(--weight-black);
+  font-size: 2rem;
 }
 
 .hero__metric-text {
-  font-size: 0.8rem;
   color: var(--text-secondary);
+  font-size: 0.8rem;
 }
 
 .hero__image {
-  height: 100%;
-  width: 50%;
+  border-top-right-radius: 2rem;
+  border-top-left-radius: 2rem;
   background-image: url("../../../../../public/images/1.jpg");
   background-position: center;
   background-size: cover;
-  border-top-left-radius: 2rem;
-  border-top-right-radius: 2rem;
+  width: 50%;
+  height: 100%;
 }
 
 .hero__ribbon {
@@ -88,8 +88,8 @@
 }
 
 .hero__brand-logo {
-  height: 100%;
   filter: invert(1);
+  height: 100%;
 }
 
 @media (max-width: 600px) {
@@ -112,10 +112,10 @@
     width: 100%;
   }
   .hero__metrics {
-    margin-top: 1rem;
     flex-wrap: wrap;
     justify-content: space-evenly;
     gap: 1rem;
+    margin-top: 1rem;
   }
   .hero__metric:nth-last-child(-n + 2) {
     padding-left: 0rem;
@@ -124,8 +124,8 @@
     border: none;
   }
   .hero__metric:first-child {
-    padding-right: 1.5rem;
     border-right: 1px solid var(--border-medium);
+    padding-right: 1.5rem;
   }
   .hero__metric {
     padding-right: 0rem;

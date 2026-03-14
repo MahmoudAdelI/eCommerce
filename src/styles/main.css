@@ -11,43 +11,44 @@
 @import url("../components/navBar/navBar.styles.css");
 @import url("../components/productCard/productCard.styles.css");
 @import url("../components/review/reviewCard.styles.css");
+@import url("../components/footer/footer.styles.css");
 @import url("../pages/NotFound/NotFound.styles.css");
 @import url("../pages/Home/components/hero/hero.styles.css");
 @import url("../pages/Home/components/categoryGrid/categoryGrid.styles.css");
 
 * {
-  padding: 0;
-  margin: 0;
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  font-family: var(--font-main);
-  font-weight: var(--weight-regular);
-  color: var(--text-primary);
   margin: 0 auto;
+  color: var(--text-primary);
+  font-weight: var(--weight-regular);
+  font-family: var(--font-main);
 }
 
 .container {
-  width: 100%;
   margin-inline: auto;
   padding-inline: 7rem;
+  width: 100%;
 }
 
 .heading {
   font-weight: var(--weight-black);
-  text-transform: uppercase;
-  font-size: 3.2rem;
+  font-size: 3rem;
   line-height: 1;
+  text-transform: uppercase;
 }
 
 .separator-label {
-  text-align: center;
   margin: 3rem 0;
+  text-align: center;
 }
 
 .hr {
-  height: 1px;
+  margin: 0 auto;
   background-color: var(--border-light);
-  margin: 3rem auto;
+  height: 1px;
 }

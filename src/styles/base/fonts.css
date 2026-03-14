@@ -1,35 +1,35 @@
 /* Regular Weight */
 @font-face {
-  font-family: "Satoshi";
-  src: url("../../../public/fonts/Satoshi-Regular.woff2") format("woff2");
-  font-weight: 300;
   font-style: normal;
+  font-weight: 300;
+  src: url("../../../public/fonts/Satoshi-Regular.woff2") format("woff2");
+  font-family: "Satoshi";
   font-display: swap;
 }
 
 /* Medium Weight */
 @font-face {
-  font-family: "Satoshi";
-  src: url("../../../public/fonts/Satoshi-Medium.woff2") format("woff2");
-  font-weight: 500;
   font-style: normal;
+  font-weight: 500;
+  src: url("../../../public/fonts/Satoshi-Medium.woff2") format("woff2");
+  font-family: "Satoshi";
   font-display: swap;
 }
 
 /* Bold Weight (for titles) */
 @font-face {
-  font-family: "Satoshi";
-  src: url("../../../public/fonts/Satoshi-Bold.woff2") format("woff2");
-  font-weight: 700;
   font-style: normal;
+  font-weight: 700;
+  src: url("../../../public/fonts/Satoshi-Bold.woff2") format("woff2");
+  font-family: "Satoshi";
   font-display: swap;
 }
 
 /* Extra Black (for the main Section Titles) */
 @font-face {
-  font-family: "Satoshi";
-  src: url("../../../public/fonts/Satoshi-Black.woff2") format("woff2");
-  font-weight: 900;
   font-style: normal;
+  font-weight: 900;
+  src: url("../../../public/fonts/Satoshi-Black.woff2") format("woff2");
+  font-family: "Satoshi";
   font-display: swap;
 }
