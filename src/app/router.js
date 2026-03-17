@@ -1,6 +1,7 @@
 // routing
 const routes = {
   "/": () => import("../pages/Home/Home.js"),
+  "/products": () => import("../pages/Products/Products.js"),
 };
 
 export const navigateTo = async (url) => {

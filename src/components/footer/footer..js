@@ -10,13 +10,13 @@ export default function footer() {
 
           <div class="footer__subscribe-actions">
             <!-- <input type="text" class="footer__subscribe-input" /> -->
-            <div class="input-component">
-              <span class="input-component__icon">
+            <div class="footer__input-wrapper">
+              <span class="footer__input-icon">
                 <i class="fa-regular fa-envelope"></i>
               </span>
               <input
                 type="text"
-                class="input-component__input"
+                class="footer__input"
                 placeholder="Enter your email address"
               />
             </div>
@@ -24,7 +24,7 @@ export default function footer() {
             <button class="footer__subscribe-button">
               Subscribe to Newsletter
             </button>
-            
+
           </div>
         </div>
 

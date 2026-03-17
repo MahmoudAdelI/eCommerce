@@ -1,8 +1,7 @@
 .footer {
-  bottom: 0;
-  margin-top: 6rem;
+  margin-top: 5rem;
   background-color: var(--bg-secondary);
-  padding-bottom: 1rem;
+  padding: 3rem 0 1rem;
   color: var(--text-secondary);
 }
 .footer__subscribe {
@@ -23,7 +22,7 @@
   gap: 1rem;
   width: 30%;
 }
-.input-component {
+.footer__input-wrapper {
   display: flex;
   gap: 0.5rem;
   border-radius: 1.8rem;
@@ -31,13 +30,13 @@
   padding: 0.5rem 1rem;
 }
 
-.input-component__icon {
+.footer__input-icon {
   border-right: 1px solid;
   border-color: var(--text-secondary);
   padding-right: 0.5rem;
   color: var(--text-secondary);
 }
-.input-component__input {
+.footer__input {
   outline: none;
   border: none;
   background-color: transparent;

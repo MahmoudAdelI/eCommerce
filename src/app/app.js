@@ -8,5 +8,5 @@ export const initApp = () => {
         ${navBar()}
         <main id="view"></main>
         ${footer()}
-    `;
+        `;
 };

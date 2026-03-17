@@ -1,0 +1,16 @@
+.products {
+  display: flex;
+  gap: 5rem;
+}
+
+.products__wrapper {
+  flex: 1;
+  border-radius: 1rem;
+  min-height: 100vh;
+}
+
+.products__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 14rem);
+  gap: 3rem 2rem;
+}

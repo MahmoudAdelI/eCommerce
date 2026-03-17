@@ -13,8 +13,10 @@
 @import url("../components/review/reviewCard.styles.css");
 @import url("../components/footer/footer.styles.css");
 @import url("../pages/NotFound/NotFound.styles.css");
+@import url("../pages/Products/Products.styles.css");
 @import url("../pages/Home/components/hero/hero.styles.css");
 @import url("../pages/Home/components/categoryGrid/categoryGrid.styles.css");
+@import url("../pages/Products/components/filter/filter.styles.css");
 
 * {
   box-sizing: border-box;
@@ -22,11 +24,27 @@
   padding: 0;
 }
 
+html,
+body {
+  height: 100%;
+}
+
 body {
   margin: 0 auto;
   color: var(--text-primary);
   font-weight: var(--weight-regular);
   font-family: var(--font-main);
+  min-height: 100%;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main#view {
+  flex: 1;
 }
 
 .container {

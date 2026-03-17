@@ -1,4 +1,4 @@
-export default class Page {
+export default class Component {
   async render() {
     throw new Error("render() must be implemented");
   }

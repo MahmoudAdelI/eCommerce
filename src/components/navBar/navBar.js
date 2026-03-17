@@ -5,7 +5,7 @@ export default function navBar() {
 
      <ul class="navbar__menu">
        <li class="navbar__item">
-         <a href="/shop" class="navbar__link" data-link>Shop</a>
+         <a href="/products" class="navbar__link" data-link>Products</a>
        </li>
        <li class="navbar__item">
          <a href="/on-sale" class="navbar__link" data-link>On Sale</a>

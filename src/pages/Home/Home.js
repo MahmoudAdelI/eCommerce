@@ -2,24 +2,20 @@ import button from "../../components/button/button.js";
 import grid from "../../components/grid/grid.js";
 import productCard from "../../components/productCard/productCard.js";
 import reviewCard from "../../components/review/reviewCard.js";
-import Page from "../../utils/Page.js";
+import { fetchProducts } from "../../services/api.js";
+import Page from "../../utils/Component.js";
 import categoryGrid from "./components/categoryGrid/categoryGrid.js";
 import hero from "./components/hero/hero.js";
 
 export default class Home extends Page {
   async render() {
-    const url = "https://dummyjson.com/products";
-    const res = await fetch(url);
-    const data = await res.json();
+    const products = await fetchProducts();
 
-    const reviewsData = data.products.flatMap((p) => {
+    const reviewsData = products.flatMap((p) => {
       return p.reviews.filter((r) => r.rating == 5);
     });
 
-    console.log(data);
-    console.log(reviewsData);
-
-    const products = data.products.map((p) =>
+    const productsCards = products.map((p) =>
       productCard({
         title: p?.title,
         img: p?.images[0],
@@ -37,13 +33,13 @@ export default class Home extends Page {
       <div class="container">
       
         <h1 class="heading separator-label">NEW ARRIVALS</h1>
-        ${grid(products.slice(0, 4))}
+        ${grid(productsCards.slice(0, 4))}
         
         ${button("View All")}
         <div class="hr"></div>
         
         <h1 class="heading separator-label">TOP SELLING</h1>
-        ${grid(products.slice(4, 8))}
+        ${grid(productsCards.slice(4, 8))}
         
         ${button("View All")}
         
@@ -60,4 +56,6 @@ export default class Home extends Page {
     `;
     return page;
   }
+
+  cleanup() {}
 }
