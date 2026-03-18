@@ -9,7 +9,6 @@
   border-radius: 1rem;
   width: 100%;
   overflow: hidden;
-  /* text-align: left; */
 }
 .product-card:hover {
   transform: translateY(-1px);

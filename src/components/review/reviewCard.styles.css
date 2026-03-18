@@ -8,10 +8,7 @@
     black calc(100% - 7rem),
     transparent 100%
   );
-  margin-bottom: 2rem;
-
   padding: 2rem;
-
   overflow-x: scroll;
   scroll-behavior: smooth;
 }

@@ -1,7 +1,5 @@
 .footer {
-  margin-top: 5rem;
   background-color: var(--bg-secondary);
-  padding: 3rem 0 1rem;
   color: var(--text-secondary);
 }
 .footer__subscribe {

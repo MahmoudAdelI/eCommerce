@@ -1,6 +1,5 @@
 .products {
   display: flex;
-  gap: 5rem;
 }
 
 .products__wrapper {
@@ -12,5 +11,6 @@
 .products__grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, 14rem);
-  gap: 3rem 2rem;
+  justify-content: center;
+  gap: 3rem 1.5rem;
 }

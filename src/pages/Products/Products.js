@@ -6,6 +6,7 @@ import {
   getQueryParams,
   setQueryParams,
 } from "../../utils/queryParamsHelper.js";
+import pagination from "./components/pagination/pagination.js";
 
 export default class Products extends Component {
   constructor() {
@@ -16,18 +17,14 @@ export default class Products extends Component {
 
   async render() {
     try {
-      console.log(this.filter);
-
       this.abortController = new AbortController();
       const signal = this.abortController.signal;
-
-      const [categories, allProducts] = await Promise.all([
+      const [categories, products] = await Promise.all([
         fetchCategories(signal),
         fetchProducts(signal),
       ]);
-
       // Apply all active filters
-      const filteredProducts = this.applyFilters(allProducts, this.filter);
+      const filteredProducts = this.applyFilters(products, this.filter);
       const paginatedProducts = this.paginate(
         filteredProducts,
         this.filter.page,
@@ -53,30 +50,16 @@ export default class Products extends Component {
         <div class="products__grid">
           ${productsCards.join("")}
         </div>
-        <div>Pagination</div>
+       ${pagination(this.filter.page, filteredProducts.length)}
       </section>
       `;
 
       page.addEventListener("click", (e) => {
-        if (e.target.closest("[data-category]")) {
-          const category = e.target.dataset.category;
-          e.target.classList.toggle("filter__category-option--active");
-          if (this.filter.category.has(category)) {
-            this.filter.category.delete(category);
-          } else {
-            this.filter.category.add(category);
-          }
-        }
-        if (e.target.closest(".filter__button")) {
-          this.filter.minPrice = document.querySelector(
-            ".filter-price__input--min",
-          ).value;
-          this.filter.maxPrice = document.querySelector(
-            ".filter-price__input--max",
-          ).value;
-          this.filter.page = 1; // Reset to first page when filters change
-          setQueryParams(this.filter);
-        }
+        this.handleCategoryClick(e);
+
+        this.handleFilterClick(e);
+
+        this.handlePaginationClick(e);
       });
 
       return page;
@@ -110,5 +93,37 @@ export default class Products extends Component {
     );
 
     return filtered;
+  }
+
+  handleCategoryClick(e) {
+    if (e.target.closest("[data-category]")) {
+      const category = e.target.dataset.category;
+      e.target.classList.toggle("filter__category-option--active");
+      if (this.filter.category.has(category)) {
+        this.filter.category.delete(category);
+      } else {
+        this.filter.category.add(category);
+      }
+    }
+  }
+
+  handleFilterClick(e) {
+    if (e.target.closest(".filter__button")) {
+      this.filter.minPrice = document.querySelector(
+        ".filter-price__input--min",
+      ).value;
+      this.filter.maxPrice = document.querySelector(
+        ".filter-price__input--max",
+      ).value;
+      this.filter.page = 1; // Reset to first page when filters change
+      setQueryParams(this.filter);
+    }
+  }
+  handlePaginationClick(e) {
+    const pageBtn = e.target.closest("button[data-page]");
+    if (pageBtn) {
+      this.filter.page = Number(pageBtn.dataset.page);
+      setQueryParams(this.filter);
+    }
   }
 }

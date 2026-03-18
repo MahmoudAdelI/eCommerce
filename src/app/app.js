@@ -2,7 +2,6 @@
 import footer from "../components/footer/footer..js";
 import navBar from "../components/navBar/navBar.js";
 export const initApp = () => {
-  console.log("test");
   const root = document.getElementById("root");
   root.innerHTML = `
         ${navBar()}
