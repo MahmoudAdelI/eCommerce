@@ -2,16 +2,17 @@ import Component from "../../utils/Component";
 import filter from "./components/filter/filter.js";
 import productCard from "../../components/productCard/productCard.js";
 import { fetchCategories, fetchProducts } from "../../services/api.js";
-import {
-  getQueryParams,
-  setQueryParams,
-} from "../../utils/queryParamsHelper.js";
+import { getFilter, setFilter } from "../../utils/queryParamsHelper.js";
 import pagination from "./components/pagination/pagination.js";
+import { navigateTo } from "../../app/router.js";
+import paginate from "../../utils/paginate.js";
 
 export default class Products extends Component {
   constructor() {
     super();
-    this.filter = getQueryParams();
+    this.page = document.createElement("div");
+    this.page.classList.add("products", "container");
+    this.filter = getFilter();
     this.abortController = null;
   }
 
@@ -19,42 +20,47 @@ export default class Products extends Component {
     try {
       this.abortController = new AbortController();
       const signal = this.abortController.signal;
+
       const [categories, products] = await Promise.all([
         fetchCategories(signal),
         fetchProducts(signal),
       ]);
+
       // Apply all active filters
       const filteredProducts = this.applyFilters(products, this.filter);
-      const paginatedProducts = this.paginate(
+      const PRODUCTS_PER_PAGE = 8;
+      const paginatedProducts = paginate(
         filteredProducts,
         this.filter.page,
+        PRODUCTS_PER_PAGE,
       );
+      localStorage.setItem("products", JSON.stringify(paginatedProducts));
 
-      const productsCards = paginatedProducts.map((p) =>
-        productCard({
-          title: p?.title,
-          img: p?.images[0],
-          rating: Math.floor(p?.rating),
-          price: (p?.price * (1 - p?.discountPercentage / 100)).toFixed(2),
-          oldPrice: p?.price,
-          discount: p?.discountPercentage,
-        }),
-      );
+      const productsCards = paginatedProducts
+        .map((p) =>
+          productCard({
+            id: p?.id,
+            title: p?.title,
+            img: p?.images[0],
+            rating: Math.floor(p?.rating),
+            price: (p?.price * (1 - p?.discountPercentage / 100)).toFixed(2),
+            oldPrice: p?.price,
+            discount: p?.discountPercentage,
+          }),
+        )
+        .join("");
 
-      const page = document.createElement("div");
-      page.classList.add("products", "container");
-
-      page.innerHTML = `
+      this.page.innerHTML = `
       ${filter(categories, this.filter)}
       <section class="products__wrapper">
         <div class="products__grid">
-          ${productsCards.join("")}
+          ${productsCards}
         </div>
        ${pagination(this.filter.page, filteredProducts.length)}
       </section>
       `;
 
-      page.addEventListener("click", (e) => {
+      this.page.addEventListener("click", (e) => {
         this.handleCategoryClick(e);
 
         this.handleFilterClick(e);
@@ -62,20 +68,13 @@ export default class Products extends Component {
         this.handlePaginationClick(e);
       });
 
-      return page;
+      return this.page;
     } catch (error) {
       console.log(error);
     }
   }
   cleanup() {
     this.abortController?.abort();
-  }
-
-  paginate(products, page, perPage = 8) {
-    const start = (page - 1) * perPage;
-    const end = start + perPage;
-
-    return products.slice(start, end);
   }
 
   applyFilters(products, filters) {
@@ -116,14 +115,16 @@ export default class Products extends Component {
         ".filter-price__input--max",
       ).value;
       this.filter.page = 1; // Reset to first page when filters change
-      setQueryParams(this.filter);
+      const url = setFilter(this.filter);
+      navigateTo(url);
     }
   }
   handlePaginationClick(e) {
     const pageBtn = e.target.closest("button[data-page]");
     if (pageBtn) {
       this.filter.page = Number(pageBtn.dataset.page);
-      setQueryParams(this.filter);
+      const url = setFilter(this.filter);
+      navigateTo(url);
     }
   }
 }

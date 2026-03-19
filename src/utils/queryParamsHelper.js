@@ -1,6 +1,4 @@
-import { navigateTo } from "../app/router";
-
-export function getQueryParams() {
+export function getFilter() {
   const params = new URLSearchParams(window.location.search);
 
   return {
@@ -11,7 +9,7 @@ export function getQueryParams() {
   };
 }
 
-export function setQueryParams(filter) {
+export function setFilter(filter) {
   const query = new URLSearchParams(window.location.search);
 
   Object.entries(filter).forEach(([key, value]) => {
@@ -25,7 +23,12 @@ export function setQueryParams(filter) {
       query.set(key, value);
     }
   });
-  const url = `${window.location.pathname}?${query.toString()}`;
 
-  navigateTo(url);
+  const url = `${window.location.pathname}?${query.toString()}`;
+  return url;
+}
+
+export function getProductId() {
+  const params = new URLSearchParams(window.location.search);
+  return Number(params.get("id")) || null;
 }

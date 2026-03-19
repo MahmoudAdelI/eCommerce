@@ -8,6 +8,10 @@ import categoryGrid from "./components/categoryGrid/categoryGrid.js";
 import hero from "./components/hero/hero.js";
 
 export default class Home extends Page {
+  constructor() {
+    super();
+    this.page = document.createElement("div");
+  }
   async render() {
     const products = await fetchProducts();
 
@@ -27,8 +31,8 @@ export default class Home extends Page {
     );
 
     const reviews = reviewsData.map((r) => reviewCard(r));
-    const page = document.createElement("div");
-    page.innerHTML = `
+
+    this.page.innerHTML = `
       ${hero()}
       <div class="container">
       
@@ -54,7 +58,7 @@ export default class Home extends Page {
           ${reviews.slice(0, 12).join("")}
         </div>
     `;
-    return page;
+    return this.page;
   }
 
   cleanup() {}

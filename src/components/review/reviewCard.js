@@ -1,3 +1,5 @@
+import formatDateLong from "../../utils/formatDate";
+
 export default function reviewCard(data) {
   const stars = data.rating
     ? "★".repeat(Math.round(data.rating)) +
@@ -13,5 +15,6 @@ export default function reviewCard(data) {
         ></span>
       </div>
       <div class="review-card__review">"${data.comment}"</div>
+      <div class="review-card__date">Posted on ${formatDateLong(data.date)}</div>
       </div>`;
 }

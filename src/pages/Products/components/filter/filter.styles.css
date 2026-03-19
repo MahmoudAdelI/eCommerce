@@ -11,13 +11,6 @@
   max-height: 80vh;
 }
 
-.filter__line {
-  margin: 1rem 0;
-  background-color: var(--border-light);
-  width: 100%;
-  height: 1px;
-}
-
 .filter__header {
   display: flex;
   justify-content: space-between;

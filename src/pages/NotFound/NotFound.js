@@ -1,6 +1,6 @@
-import Page from "../../utils/Page.js";
+import Component from "../../utils/Component.js";
 
-export default class NotFound extends Page {
+export default class NotFound extends Component {
   render() {
     const page = document.createElement("div");
     page.className = "not-found";

@@ -53,3 +53,7 @@
   color: var(--text-secondary);
   line-height: 1.6;
 }
+.review-card__date {
+  color: var(--text-muted);
+  font-size: smaller;
+}

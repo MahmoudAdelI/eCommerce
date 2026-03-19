@@ -5,7 +5,7 @@ export default function filter(_categories, active) {
           <h3 class="filter__title">Filters</h3>
           <i class="fa-solid fa-sliders"></i>
         </div>
-        <div class="filter__line"></div>
+        <div class="line"></div>
 
         <div class="group">
           <h4 class="group__title">category</h4>
@@ -14,7 +14,7 @@ export default function filter(_categories, active) {
           </ul>
         </div>
 
-        <div class="filter__line"></div>
+        <div class="line"></div>
 
         <div class="group">
           <h4 class="group__title">price</h4>
