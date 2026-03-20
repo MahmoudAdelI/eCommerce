@@ -1,11 +1,16 @@
 // gets root element and apply golbal layouts like (navbar)
-import footer from "../components/footer/footer..js";
-import navBar from "../components/navBar/navBar.js";
+import Navbar from "../components/navBar/navBar.js";
+import Footer from "../components/footer/footer.js";
 export const initApp = () => {
   const root = document.getElementById("root");
-  root.innerHTML = `
-        ${navBar()}
-        <main id="view"></main>
-        ${footer()}
-        `;
+
+  const NavbarEl = new Navbar().render();
+
+  const Main = document.createElement("main");
+  Main.id = "view";
+
+  const FooterEl = new Footer().render();
+  root.appendChild(NavbarEl);
+  root.appendChild(Main);
+  root.appendChild(FooterEl);
 };

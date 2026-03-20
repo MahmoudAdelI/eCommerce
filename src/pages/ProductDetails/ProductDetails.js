@@ -1,5 +1,6 @@
 import reviewCard from "../../components/review/reviewCard";
 import calcDiscount from "../../utils/calcDiscount";
+import { addToCart } from "../../utils/cart";
 import Component from "../../utils/Component";
 import generateStars from "../../utils/generateStars";
 import { getProductId } from "../../utils/queryParamsHelper";
@@ -7,55 +8,65 @@ import { getProductId } from "../../utils/queryParamsHelper";
 export default class ProductDetails extends Component {
   constructor() {
     super();
-    this.productId = getProductId();
     this.page = document.createElement("div");
     this.page.classList.add("product-details", "container");
+
+    this.productId = getProductId();
+    this.product = null;
+    this.quantity = 1;
+
+    this.page.addEventListener("click", (e) => {
+      this.handleAddToCart(e);
+      this.handleQuantityChange(e);
+      this.handleChangeImage(e);
+    });
   }
 
   async render() {
-    const product = JSON.parse(localStorage.getItem("products"))?.find(
+    this.product = JSON.parse(localStorage.getItem("products"))?.find(
       (p) => p.id === this.productId,
     );
+    console.log(this.product);
 
     this.page.innerHTML = `
             <div class="wrapper">
             <section class="product">
               <div class="product__images">
                 <div class="product__thumbnails">
-                  ${product.images
+                  ${this.product.images
                     .map(
                       (img, index) =>
                         `
                       <div class="product__thumbnail">
-                        <img src="${img}" alt="${product.title}" class="product__thumbnail-img" data-index="${index}" />
+                        <img src="${img}" alt="${this.product.title}" class="product__thumbnail-img" data-index="${index}" />
                       </div>
                       `,
                     )
                     .join("")}
                 </div>
                 <div class="product__main-image">
-                  <img src="${product.images[0]}" alt="${product.title}" class="product__main-img" />
+                  <img src="${this.product.images[0]}" alt="${this.product.title}" class="product__main-img" />
                 </div>
               </div>
               <div class="product__details">
-                <div class="product__title">${product.title}</div>
+                <div class="product__title">${this.product.title}</div>
                 <div class="product__rating">
-                  <span class="rating__stars">${generateStars(product.rating)}</span>
-                  <span class="rating__count">${product.rating || "—"}/5</span>
+                  <span class="rating__stars">${generateStars(this.product.rating)}</span>
+                  <span class="rating__count">${this.product.rating || "—"}/5</span>
                   
                 </div>
                 <div class="product__price">
-                  <div class="product__current-price">$${calcDiscount(product.price, product.discountPercentage)}</div>
+                  <div class="product__current-price">$${calcDiscount(this.product.price, this.product.discountPercentage)}</div>
                   ${
-                    product.discountPercentage
+                    this.product.discountPercentage
                       ? `
-                  <div class="product__old-price">$${product.price}</div>
-                  <div class="product__price-discount">-${product.discountPercentage}%</div>
+                  <div class="product__old-price">$${this.product.price}</div>
+                  <div class="product__price-discount">-${this.product.discountPercentage}%</div>
                   `
                       : ""
                   }
                 </div>
-                <p class="product__description">${product.description}</p>
+                <p class="product__description">${this.product.description}</p>
                 <div class="line"></div>
                 <div class="product__cart-management">
                   <div class="product__counter">
@@ -77,12 +88,12 @@ export default class ProductDetails extends Component {
               <h2 class="product__reviews-title">
                Customer Reviews
               </h2>
-              <span class="product__reviews-count">(${product.reviews ? product.reviews.length : 0})</span>
+              <span class="product__reviews-count">(${this.product.reviews ? this.product.reviews.length : 0})</span>
               </div>
               <div class="product__reviews-list">
               ${
-                product.reviews && product.reviews.length > 0
-                  ? product.reviews.map((r) => reviewCard(r)).join("")
+                this.product.reviews && this.product.reviews.length > 0
+                  ? this.product.reviews.map((r) => reviewCard(r)).join("")
                   : `<p class="product__no-reviews">No reviews yet.</p>`
               }
               </div>
@@ -90,5 +101,36 @@ export default class ProductDetails extends Component {
           </div>
         `;
     return this.page;
+  }
+
+  handleAddToCart(e) {
+    if (e.target.closest(".product__add")) {
+      addToCart(this.product, this.quantity);
+    }
+  }
+
+  handleQuantityChange(e) {
+    if (e.target.closest(".product__counter-btn--decrease")) {
+      console.log("decrease");
+      console.log("decrease");
+      if (this.quantity > 1) {
+        this.quantity--;
+        this.page.querySelector(".product__counter-value").textContent =
+          this.quantity;
+      }
+    } else if (e.target.closest(".product__counter-btn--increase")) {
+      console.log("increase");
+      this.quantity++;
+      this.page.querySelector(".product__counter-value").textContent =
+        this.quantity;
+    }
+  }
+
+  handleChangeImage(e) {
+    if (e.target.closest(".product__thumbnail-img")) {
+      const index = e.target.dataset.index;
+      const mainImg = this.page.querySelector(".product__main-img");
+      mainImg.src = this.product.images[index];
+    }
   }
 }

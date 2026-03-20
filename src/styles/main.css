@@ -5,7 +5,8 @@
 
 /* 2. Import Variables */
 @import url("./base/variables.css");
-/* 2. Import Components styles */
+
+/* 3. Import Components styles */
 @import url("../components/button/button.styles.css");
 @import url("../components/grid/grid.css");
 @import url("../components/navBar/navBar.styles.css");

@@ -1,6 +1,13 @@
-export default function footer() {
-  return `
-  <div class="footer">
+import Component from "../../utils/Component";
+
+export default class Footer extends Component {
+  constructor() {
+    super();
+    this.footer = document.createElement("footer");
+    this.footer.classList.add("footer");
+  }
+  render() {
+    this.footer.innerHTML = `
       <div class="container">
         <div class="footer__subscribe">
           <h2 class="heading">
@@ -78,6 +85,7 @@ export default function footer() {
         <div class="footer__bottom">
           <p class="footer__copyright">© 2026 SHOP.CO. All rights reserved.</p>
         </div>
-      </div>
-    </div>`;
+      </div>`;
+    return this.footer;
+  }
 }

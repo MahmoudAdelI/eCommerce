@@ -9,7 +9,6 @@
 .product__images {
   display: flex;
   flex: 1;
-  gap: 1rem;
   border-radius: 1rem;
   height: 100%;
 }
@@ -37,10 +36,11 @@
   cursor: pointer;
   border-radius: 1rem;
   background-color: var(--bg-product);
+  height: 25%;
   overflow: hidden;
 }
 .product__thumbnail:hover {
-  outline: 1px solid black;
+  outline: 2px solid black;
 }
 .product__thumbnail-img {
   width: 100%;

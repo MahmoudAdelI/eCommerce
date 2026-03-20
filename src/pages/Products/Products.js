@@ -28,7 +28,7 @@ export default class Products extends Component {
 
       // Apply all active filters
       const filteredProducts = this.applyFilters(products, this.filter);
-      const PRODUCTS_PER_PAGE = 8;
+      const PRODUCTS_PER_PAGE = 9;
       const paginatedProducts = paginate(
         filteredProducts,
         this.filter.page,
