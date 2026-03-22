@@ -2,7 +2,7 @@ import Component from "../../utils/Component";
 import filter from "./components/filter/filter.js";
 import productCard from "../../components/productCard/productCard.js";
 import { fetchCategories, fetchProducts } from "../../services/api.js";
-import { getFilter, setFilter } from "../../utils/queryParamsHelper.js";
+import { getFilter, setFilter } from "../../services/queryParams.js";
 import pagination from "./components/pagination/pagination.js";
 import { navigateTo } from "../../app/router.js";
 import paginate from "../../utils/paginate.js";
@@ -13,12 +13,11 @@ export default class Products extends Component {
     this.page = document.createElement("div");
     this.page.classList.add("products", "container");
     this.filter = getFilter();
-    this.abortController = null;
+    this.abortController = new AbortController();
   }
 
   async render() {
     try {
-      this.abortController = new AbortController();
       const signal = this.abortController.signal;
 
       const [categories, products] = await Promise.all([

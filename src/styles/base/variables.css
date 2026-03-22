@@ -19,9 +19,13 @@
   --bg-discount: #ffebeb; /* Light Red/Pink - background for discount percentage pill */
   --text-discount: #ff3333; /* Bright Red - text for discount percentage (e.g., -20%) */
 
+  /* Delete Colors */
+  --bg-delete: #ffebeb; /* Light Red/Pink - background for delete button */
+  --text-delete: #ff3333; /* Bright Red - text for delete button */
+
   /* Borders */
   --border-light: #e0e0e0; /* Very Light Gray - testimonial cards, buttons, section dividers */
-  --border-medium: #a0a0a0; /* Very Light Gray - testimonial cards, buttons, section dividers */
+  --border-medium: #f0f0f0; /* Very Light Gray - testimonial cards, buttons, section dividers */
 
   /* Font Family */
   --font-main: "Satoshi", Helvetica, Arial, sans-serif;

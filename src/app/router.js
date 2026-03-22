@@ -3,6 +3,7 @@ const routes = {
   "/": () => import("../pages/Home/Home.js"),
   "/products": () => import("../pages/Products/Products.js"),
   "/product": () => import("../pages/ProductDetails/ProductDetails.js"),
+  "/cart": () => import("../pages/Cart/Cart.js"),
 };
 
 export const navigateTo = async (url) => {

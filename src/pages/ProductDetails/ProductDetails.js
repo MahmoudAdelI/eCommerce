@@ -1,9 +1,9 @@
 import reviewCard from "../../components/review/reviewCard";
 import calcDiscount from "../../utils/calcDiscount";
-import { addToCart } from "../../utils/cart";
 import Component from "../../utils/Component";
 import generateStars from "../../utils/generateStars";
-import { getProductId } from "../../utils/queryParamsHelper";
+import { getProductId } from "../../services/queryParams";
+import { addToCart } from "../../services/cart";
 
 export default class ProductDetails extends Component {
   constructor() {
@@ -29,7 +29,6 @@ export default class ProductDetails extends Component {
     console.log(this.product);
 
     this.page.innerHTML = `
-            <div class="wrapper">
             <section class="product">
               <div class="product__images">
                 <div class="product__thumbnails">
@@ -98,7 +97,6 @@ export default class ProductDetails extends Component {
               }
               </div>
             </section>
-          </div>
         `;
     return this.page;
   }
@@ -111,15 +109,12 @@ export default class ProductDetails extends Component {
 
   handleQuantityChange(e) {
     if (e.target.closest(".product__counter-btn--decrease")) {
-      console.log("decrease");
-      console.log("decrease");
       if (this.quantity > 1) {
         this.quantity--;
         this.page.querySelector(".product__counter-value").textContent =
           this.quantity;
       }
     } else if (e.target.closest(".product__counter-btn--increase")) {
-      console.log("increase");
       this.quantity++;
       this.page.querySelector(".product__counter-value").textContent =
         this.quantity;

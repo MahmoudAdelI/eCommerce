@@ -1,0 +1,141 @@
+.cart {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+  border-radius: 1rem;
+  height: 80vh;
+}
+
+.cart__items {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  border: 1px solid var(--border-light);
+  border-radius: 1rem;
+  overflow-y: scroll;
+  scrollbar-color: var(--border-light) transparent;
+  scrollbar-width: thin;
+  list-style: none;
+}
+
+.cart__item {
+  display: flex;
+  gap: 1rem;
+  margin-inline: 1rem;
+  border-bottom: 1px solid var(--border-light);
+  padding: 1rem 0;
+}
+
+.item__image-wrapper {
+  display: grid;
+  place-items: center;
+  border-radius: 1rem;
+  background-color: var(--bg-product);
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+}
+
+.item__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.item__info {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.item__price {
+  font-size: 1.2rem;
+}
+.product__controls {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: end;
+}
+.product__delete {
+  transition: 0.2s ease;
+  cursor: pointer;
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+  padding: 0.5rem;
+  color: var(--text-delete);
+}
+
+.product__delete:hover {
+  background-color: var(--bg-delete);
+}
+.product__quantity {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 2rem;
+  background-color: var(--bg-secondary);
+  padding: 0.25rem 1rem;
+  font-weight: var(--weight-medium);
+}
+.product__quantity-btn {
+  transition: 0.2s ease;
+  cursor: pointer;
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+  padding: 0.25rem;
+  font-size: inherit;
+}
+.product__quantity-btn:hover {
+  background-color: var(--bg-dark);
+  color: white;
+}
+.cart__order {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border: 1px solid var(--border-light);
+  border-radius: 1rem;
+  padding: 1rem;
+  width: 25%;
+  height: fit-content;
+}
+
+.order__title {
+  margin-bottom: 1rem;
+}
+.order__summary {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.order__row {
+  display: flex;
+  justify-content: space-between;
+}
+.order__key {
+  color: var(--text-secondary);
+}
+
+.order__value {
+  font-weight: var(--weight-bold);
+}
+
+.order__discount-value {
+  color: red;
+}
+
+.order__total {
+  color: black;
+  font-weight: var(--weight-bold);
+}
+
+.order__checkout-btn {
+  margin: 2rem auto 0;
+  background-color: var(--bg-dark);
+  padding: 1rem 1.5rem;
+  color: white;
+}

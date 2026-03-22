@@ -1,11 +1,11 @@
-import { getCartCount } from "../../utils/cart";
+import { getCartCount } from "../../services/cart";
 import Component from "../../utils/Component";
 
 export default class NavBar extends Component {
   constructor() {
     super();
     this.navbar = document.createElement("nav");
-    this.navbar.classList.add("container", "navbar");
+    this.navbar.classList.add("container");
     this.count = getCartCount();
     this.countElement = null;
 
@@ -16,7 +16,7 @@ export default class NavBar extends Component {
 
   render() {
     this.navbar.innerHTML = `
-      
+      <div class="navbar">
         <a href="/" class="navbar__logo"> SHOP.CO </a>
 
         <ul class="navbar__menu">
@@ -44,7 +44,7 @@ export default class NavBar extends Component {
         </div>
 
         <div class="navbar__actions">
-          <a href="#" class="navbar__link navbar__cart">
+          <a href="/cart" class="navbar__link navbar__cart">
             <i class="fa-solid fa-cart-shopping"></i>
             <span class="cart__count" data-count="${this.count}">${this.count}</span>
           </a>
@@ -52,6 +52,7 @@ export default class NavBar extends Component {
             <i class="fa-regular fa-circle-user"></i>
           </a>
         </div>
+      </div>
     
 
     `;
