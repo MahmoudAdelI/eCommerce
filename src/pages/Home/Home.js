@@ -3,6 +3,7 @@ import grid from "../../components/grid/grid.js";
 import productCard from "../../components/productCard/productCard.js";
 import reviewCard from "../../components/review/reviewCard.js";
 import { fetchProducts } from "../../services/api.js";
+import { calcDiscount } from "../../utils/calcDiscount.js";
 import Component from "../../utils/Component.js";
 import categoryGrid from "./components/categoryGrid/categoryGrid.js";
 import hero from "./components/hero/hero.js";
@@ -27,7 +28,7 @@ export default class Home extends Component {
           title: p?.title,
           img: p?.images[0],
           rating: Math.floor(p?.rating),
-          price: (p?.price * (1 - p?.discountPercentage / 100)).toFixed(2),
+          price: calcDiscount(p?.price, p?.discountPercentage),
           oldPrice: p?.price,
           discount: p?.discountPercentage,
         }),

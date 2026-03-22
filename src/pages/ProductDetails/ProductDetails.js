@@ -1,5 +1,5 @@
 import reviewCard from "../../components/review/reviewCard";
-import calcDiscount from "../../utils/calcDiscount";
+import { calcDiscount } from "../../utils/calcDiscount";
 import Component from "../../utils/Component";
 import generateStars from "../../utils/generateStars";
 import { getProductId } from "../../services/queryParams";

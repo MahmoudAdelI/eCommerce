@@ -21,6 +21,7 @@
 @import url("../pages/Products/components/filter/filter.styles.css");
 @import url("../pages/ProductDetails/productDetails.styles.css");
 @import url("../pages/Cart/Cart.styles.css");
+@import url("../pages/Cart/cartSummary/cartSummary.styles.css");
 
 * {
   box-sizing: border-box;

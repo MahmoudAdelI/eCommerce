@@ -19,7 +19,11 @@ export function addToCart(product, quantity = 1) {
 
   saveCart(cart);
 
-  window.dispatchEvent(new Event("cart:updated"));
+  window.dispatchEvent(
+    new CustomEvent("cart:updated", {
+      detail: { cart: getCart() },
+    }),
+  );
 }
 
 export function removeFromCart(productId) {
@@ -27,7 +31,11 @@ export function removeFromCart(productId) {
   const updatedCart = cart.filter((item) => item.id !== productId);
   saveCart(updatedCart);
 
-  window.dispatchEvent(new Event("cart:updated"));
+  window.dispatchEvent(
+    new CustomEvent("cart:updated", {
+      detail: { cart: getCart() },
+    }),
+  );
 }
 
 export function updateCartItem(productId, quantity) {
@@ -37,7 +45,11 @@ export function updateCartItem(productId, quantity) {
     item.quantity = quantity;
     saveCart(cart);
 
-    window.dispatchEvent(new Event("cart:updated"));
+    window.dispatchEvent(
+      new CustomEvent("cart:updated", {
+        detail: { cart: getCart() },
+      }),
+    );
   }
 }
 

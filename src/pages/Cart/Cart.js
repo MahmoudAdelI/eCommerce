@@ -1,6 +1,7 @@
-import { getCart } from "../../services/cart";
-import calcDiscount from "../../utils/calcDiscount";
+import { getCart, removeFromCart, updateCartItem } from "../../services/cart";
+import { calcDiscount } from "../../utils/calcDiscount";
 import Component from "../../utils/Component";
+import CartSummary from "./cartSummary/CartSummary";
 
 export default class Cart extends Component {
   constructor() {
@@ -9,6 +10,13 @@ export default class Cart extends Component {
     this.page.classList.add("container");
 
     this.cart = getCart();
+
+    this.cartSummary = new CartSummary(this.cart);
+
+    this.page.addEventListener("click", (e) => {
+      this.handleQuantityChange(e);
+      this.handleDeleteItem(e);
+    });
   }
 
   async render() {
@@ -19,7 +27,7 @@ export default class Cart extends Component {
               .map(
                 (p) =>
                   `
-                    <li class="cart__item" data-product-id="${p.id}">
+                    <li class="cart__item" data-product-id="${p.id}" data-quantity="${p.quantity}">
                         <div class="item__image-wrapper">
                             <img src="${p.images[0]}" alt="${p.title}" class="item__image">
                         </div>
@@ -46,40 +54,50 @@ export default class Cart extends Component {
               )
               .join("")}
         </ul>
-        <div class="cart__order">
-            <div class="order__body">
-                <h2 class="order__title">Order Summary</h2>
-                <div class="order__summary">
-                    <div class="order__row">
-                        <span class="order__key">Subtotal</span>
-                        <span class="order__value">$100</span>
-                    </div>
-                    <div class="order__row">
-                        <span class="order__key">Discount <span class="order__discount-percent">(-20%)</span></span>
-                        <span class="order__value order__discount-value">-$100</span>
-                    </div>
-                    <div class="order__row">
-                        <span class="order__key">Delivery Fee</span>
-                        <span class="order__value">$15</span>
-                    </div>
-                    <div class="line"></div>
-                    <div class="order__row">
-                        <span class="order__key order__total">Total</span>
-                        <span class="order__value">$115</span>
-                    </div>
-                </div>
-
-            </div>
-            <div class="order__checkout">
-                <button class="button order__checkout-btn">Checkout</button>
-            </div>
-        </div>
 
 
     </div>
 `;
 
+    this.page.querySelector(".cart").appendChild(this.cartSummary.render());
+
     return this.page;
   }
+
+  cleanup() {
+    this.cartSummary.cleanup();
+  }
+
+  handleQuantityChange(e) {
+    const item = e.target.closest(".cart__item");
+    if (!item) return;
+    const productId = Number(item.dataset.productId);
+    const valueElement = item.querySelector(".product__quantity-value");
+
+    let quantity = Number(item.dataset.quantity);
+
+    if (e.target.closest(".product__quantity-btn--decrease")) {
+      if (quantity > 1) {
+        quantity--;
+        item.dataset.quantity = quantity;
+        valueElement.textContent = quantity;
+      }
+    } else if (e.target.closest(".product__quantity-btn--increase")) {
+      quantity++;
+      item.dataset.quantity = quantity;
+      valueElement.textContent = quantity;
+    }
+
+    updateCartItem(productId, quantity);
+  }
+
+  handleDeleteItem(e) {
+    const item = e.target.closest(".cart__item");
+    if (!item) return;
+    if (e.target.closest(".product__delete")) {
+      const productId = Number(item.dataset.productId);
+      removeFromCart(productId);
+      item.remove();
+    }
+  }
 }
-//<img src="${p.images[0]}" alt="${p.title}" class="item__image">

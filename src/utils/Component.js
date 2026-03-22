@@ -6,4 +6,8 @@ export default class Component {
   cleanup() {
     // optional, override if needed
   }
+
+  update() {
+    // optional, override if needed
+  }
 }

@@ -10,7 +10,7 @@ export default class NavBar extends Component {
     this.countElement = null;
 
     window.addEventListener("cart:updated", () => {
-      this.updateCartCount();
+      this.update();
     });
   }
 
@@ -61,7 +61,7 @@ export default class NavBar extends Component {
 
     return this.navbar;
   }
-  updateCartCount() {
+  update() {
     this.count = getCartCount();
     this.countElement.textContent = this.count;
     this.countElement.setAttribute("data-count", this.count);
