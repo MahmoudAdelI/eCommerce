@@ -5,22 +5,22 @@ export default function categoryGrid() {
   
   <div class="category__grid">
     <!-- Shoes Card -->
-    <a href="/products" data-link class="category__card category__card--shoes">
+    <a href="/products?category=mens-shoes&category=womens-shoes" data-link class="category__card category__card--shoes">
       <h3 class="category__card-title">Shoes</h3>
     </a>
     
     <!-- whatches Card -->
-    <a href="/products" data-link  class="category__card category__card--watches">
+    <a href="/products?category=mens-watches&category=womens-watches" data-link  class="category__card category__card--watches">
       <h3 class="category__card-title">Watches</h3>
     </a >
     
     <!-- Glasses Card -->
-    <a href="/products" data-link class="category__card category__card--glasses">
+    <a href="/products?category=sunglasses" data-link class="category__card category__card--glasses">
       <h3 class="category__card-title">Glasses</h3>
     </a>
     
     <!-- sports Card -->
-    <a href="/products" data-link class="category__card category__card--sports">
+    <a href="/products?category=sports-accessories" data-link class="category__card category__card--sports">
       <h3 class="category__card-title">Sports</h3>
     </a>
   </div>

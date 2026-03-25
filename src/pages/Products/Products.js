@@ -2,7 +2,11 @@ import Component from "../../utils/Component";
 import filter from "./components/filter/filter.js";
 import productCard from "../../components/productCard/productCard.js";
 import { fetchCategories, fetchProducts } from "../../services/api.js";
-import { getFilter, setFilter } from "../../services/queryParams.js";
+import {
+  getFilter,
+  getSearchQuery,
+  setFilter,
+} from "../../services/queryParams.js";
 import pagination from "./components/pagination/pagination.js";
 import { navigateTo } from "../../app/router.js";
 import paginate from "../../utils/paginate.js";
@@ -12,7 +16,9 @@ export default class Products extends Component {
     super();
     this.page = document.createElement("div");
     this.page.classList.add("products", "container");
+
     this.filter = getFilter();
+    this.searchQuery = getSearchQuery();
     this.abortController = new AbortController();
   }
 
@@ -22,7 +28,7 @@ export default class Products extends Component {
 
       const [categories, products] = await Promise.all([
         fetchCategories(signal),
-        fetchProducts(signal),
+        fetchProducts(signal, this.searchQuery),
       ]);
 
       // Apply all active filters
@@ -34,19 +40,8 @@ export default class Products extends Component {
         PRODUCTS_PER_PAGE,
       );
       localStorage.setItem("products", JSON.stringify(paginatedProducts));
-
       const productsCards = paginatedProducts
-        .map((p) =>
-          productCard({
-            id: p?.id,
-            title: p?.title,
-            img: p?.images[0],
-            rating: Math.floor(p?.rating),
-            price: (p?.price * (1 - p?.discountPercentage / 100)).toFixed(2),
-            oldPrice: p?.price,
-            discount: p?.discountPercentage,
-          }),
-        )
+        .map((p) => productCard(p))
         .join("");
 
       this.page.innerHTML = `
@@ -55,7 +50,7 @@ export default class Products extends Component {
         <div class="products__grid">
           ${productsCards}
         </div>
-       ${pagination(this.filter.page, filteredProducts.length)}
+       ${pagination(this.filter.page, filteredProducts.length, PRODUCTS_PER_PAGE)}
       </section>
       `;
 

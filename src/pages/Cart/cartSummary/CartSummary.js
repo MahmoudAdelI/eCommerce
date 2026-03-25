@@ -7,6 +7,7 @@ export default class CartSummary extends Component {
     this.cart = cart;
     this.element = document.createElement("div");
     this.element.classList.add("cart__order");
+
     this.handleUpdate = this.update.bind(this);
     window.addEventListener("cart:updated", this.handleUpdate);
   }
@@ -14,6 +15,7 @@ export default class CartSummary extends Component {
   render() {
     const { subtotal, totalAfter, discount, discountPercent } =
       this.calculateTotals();
+
     this.element.innerHTML = `
             <div class="order__body">
                 <h2 class="order__title">Order Summary</h2>
@@ -28,12 +30,12 @@ export default class CartSummary extends Component {
                     </div>
                     <div class="order__row">
                         <span class="order__key">Delivery Fee</span>
-                        <span class="order__value">$15</span>
+                        <span class="order__value">$${subtotal == 0 ? 0 : 15}</span>
                     </div>
                     <div class="line"></div>
                     <div class="order__row">
                         <span class="order__key order__total">Total</span>
-                        <span class="order__value">$${+totalAfter + 15}</span>
+                        <span class="order__value">$${+totalAfter + (subtotal == 0 ? 0 : 15)}</span>
                     </div>
                 </div>
 
@@ -50,6 +52,7 @@ export default class CartSummary extends Component {
     this.cart = e.detail.cart;
     this.render();
   }
+
   cleanup() {
     window.removeEventListener("cart:updated", this.handleUpdate);
   }

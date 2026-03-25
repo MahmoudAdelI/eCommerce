@@ -55,6 +55,7 @@
   border-radius: 1.5rem;
   padding: 0.25rem 0.75rem;
   scroll-snap-align: end;
+  font-size: small;
 }
 
 .filter__category-option:hover {

@@ -35,25 +35,24 @@
   font-weight: var(--weight-bold);
 }
 
-.navbar__search {
-  display: flex;
-  flex-grow: 1;
-  gap: 0.5rem;
-  border-radius: 1.2rem;
-  background-color: var(--bg-secondary);
-  padding: 0.5rem 1rem;
-  max-width: 500px;
-}
-
-.navbar__search-icon {
+.navbar__search-btn {
+  cursor: pointer;
+  border: none;
   border-right: 1px solid;
   border-color: var(--text-secondary);
+  background-color: transparent;
   padding-right: 0.5rem;
   color: var(--text-secondary);
 }
 
 .navbar__search-form {
-  flex-grow: 1;
+  display: flex;
+  flex: 1;
+  gap: 0.5rem;
+  border-radius: 1.2rem;
+  background-color: var(--bg-secondary);
+  padding: 0.5rem 1rem;
+  max-width: 500px;
 }
 
 .navbar__search-input {

@@ -22,17 +22,7 @@ export default class Home extends Component {
       const reviewsData = products.flatMap((p) => {
         return p.reviews.filter((r) => r.rating == 5);
       });
-
-      const productsCards = products.map((p) =>
-        productCard({
-          title: p?.title,
-          img: p?.images[0],
-          rating: Math.floor(p?.rating),
-          price: calcDiscount(p?.price, p?.discountPercentage),
-          oldPrice: p?.price,
-          discount: p?.discountPercentage,
-        }),
-      );
+      const productsCards = products.map((p) => productCard(p));
 
       const reviews = reviewsData.map((r) => reviewCard(r));
 

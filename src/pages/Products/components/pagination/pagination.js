@@ -1,10 +1,9 @@
-export default function pagination(page, totalCount, perPage = 8) {
+export default function pagination(page, totalCount, perPage = 9) {
   const totalPages = Math.ceil(totalCount / perPage);
 
   const currentGroup = Math.ceil(page / 5);
   const startPage = (currentGroup - 1) * 5 + 1;
   const endPage = Math.min(startPage + 4, totalPages);
-
   let pages = "";
   for (let i = startPage; i <= endPage; i++) {
     pages += `<button class="pagination__page
@@ -29,7 +28,7 @@ export default function pagination(page, totalCount, perPage = 8) {
         ${pages}
       </div>
       <button class="button pagination__button pagination__button--next"
-        ${page === totalPages ? "disabled" : ""}
+        ${page === totalPages || totalPages === 0 ? "disabled" : ""}
         data-page="${page + 1}"
       >
         <span class="pagination__text"> Next </span>

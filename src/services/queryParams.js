@@ -8,6 +8,10 @@ export function getFilter() {
     maxPrice: Number(params.get("maxPrice")) || null,
   };
 }
+export function getSearchQuery() {
+  const params = new URLSearchParams(window.location.search);
+  return params.get("search") || null;
+}
 
 export function setFilter(filter) {
   const query = new URLSearchParams(window.location.search);

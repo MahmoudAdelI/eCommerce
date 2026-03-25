@@ -1,3 +1,4 @@
+import { navigateTo } from "../../app/router";
 import { getCartCount } from "../../services/cart";
 import Component from "../../utils/Component";
 
@@ -7,8 +8,8 @@ export default class NavBar extends Component {
     this.navbar = document.createElement("nav");
     this.navbar.classList.add("container");
     this.count = getCartCount();
-    this.countElement = null;
 
+    this.navbar.addEventListener("submit", (e) => this.handleSubmit(e));
     window.addEventListener("cart:updated", () => {
       this.update();
     });
@@ -24,24 +25,24 @@ export default class NavBar extends Component {
             <a href="/products" class="navbar__link" data-link>Products</a>
           </li>
           <li class="navbar__item">
-            <a href="/on-sale" class="navbar__link" data-link>On Sale</a>
+            <a href="/products" class="navbar__link" data-link>On Sale</a>
           </li>
           <li class="navbar__item">
-            <a href="/new-arrivals" class="navbar__link" data-link>New Arrivals</a>
+            <a href="/products" class="navbar__link" data-link>New Arrivals</a>
           </li>
           <li class="navbar__item">
-            <a href="/brands" class="navbar__link" data-link>Brands</a>
+            <a href="/products" class="navbar__link" data-link>Brands</a>
           </li>
         </ul>
 
-        <div class="navbar__search">
-          <span class="navbar__search-icon">
+        
+        <form class="navbar__search-form">
+          <button class="navbar__search-btn" type="submit">
             <i class="fa-solid fa-magnifying-glass"></i>
-          </span>
-          <form class="navbar__search-form">
+          </button>
             <input type="text" class="navbar__search-input" />
           </form>
-        </div>
+       
 
         <div class="navbar__actions">
           <a href="/cart" class="navbar__link navbar__cart">
@@ -53,17 +54,20 @@ export default class NavBar extends Component {
           </a>
         </div>
       </div>
-    
-
     `;
-
-    this.countElement = this.navbar.querySelector(".cart__count");
 
     return this.navbar;
   }
   update() {
     this.count = getCartCount();
-    this.countElement.textContent = this.count;
-    this.countElement.setAttribute("data-count", this.count);
+    this.render();
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    const input = this.navbar.querySelector(".navbar__search-input");
+    const query = input.value.trim();
+    const url = `/products?search=${encodeURIComponent(query)}`;
+    navigateTo(url);
   }
 }

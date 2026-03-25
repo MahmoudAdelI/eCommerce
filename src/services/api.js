@@ -1,7 +1,10 @@
 // functions that calls APIs
-export async function fetchProducts(signal) {
+export async function fetchProducts(signal, searchQuery) {
   try {
-    const res = await fetch("https://dummyjson.com/products?limit=194", {
+    const url = searchQuery
+      ? `https://dummyjson.com/products/search?q=${encodeURIComponent(searchQuery)}&limit=100`
+      : "https://dummyjson.com/products?limit=194";
+    const res = await fetch(url, {
       signal,
     });
     const data = await res.json();
