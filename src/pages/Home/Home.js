@@ -1,4 +1,3 @@
-import button from "../../components/button/button.js";
 import grid from "../../components/grid/grid.js";
 import productCard from "../../components/productCard/productCard.js";
 import reviewCard from "../../components/review/reviewCard.js";
@@ -33,14 +32,13 @@ export default class Home extends Component {
           <h1 class="heading separator-label">NEW ARRIVALS</h1>
           ${grid(productsCards.slice(0, 4))}
           
-          ${button("View All")}
+          <a class="button view-all" href="/products">View All</a>
           <div class="hr"></div>
           
           <h1 class="heading separator-label">TOP SELLING</h1>
           ${grid(productsCards.slice(4, 8))}
           
-          ${button("View All")}
-          
+          <a class="button view-all" href="/products">View All</a>
           ${categoryGrid()}
           
           <h1 class="heading ">OUR HAPPY CUSTOMERS</h1>

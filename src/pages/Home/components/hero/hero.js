@@ -1,4 +1,3 @@
-import button from "../../../../components/button/button.js";
 import ribbon from "../ribbon/rebbon.js";
 
 export default function hero() {
@@ -17,7 +16,7 @@ export default function hero() {
             to bring out your individuality and cater to your sense of style.
             </p>
 
-            ${button("shop now", "button--hero")}
+            <button class="button button--hero">shop now</button>
             <div class="hero__metrics">
             <div class="hero__metric">
                 <h2 class="hero__metric-number">200+</h2>

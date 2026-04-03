@@ -31,7 +31,6 @@ export default class Products extends Component {
         fetchProducts(signal, this.searchQuery),
       ]);
 
-      // Apply all active filters
       const filteredProducts = this.applyFilters(products, this.filter);
       const PRODUCTS_PER_PAGE = 9;
       const paginatedProducts = paginate(
