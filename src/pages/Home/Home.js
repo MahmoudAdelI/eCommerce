@@ -2,16 +2,17 @@ import grid from "../../components/grid/grid.js";
 import productCard from "../../components/productCard/productCard.js";
 import reviewCard from "../../components/review/reviewCard.js";
 import { fetchProducts } from "../../services/api.js";
-import { calcDiscount } from "../../utils/calcDiscount.js";
 import Component from "../../utils/Component.js";
 import categoryGrid from "./components/categoryGrid/categoryGrid.js";
-import hero from "./components/hero/hero.js";
+import Hero from "./components/hero/hero.js";
 
 export default class Home extends Component {
   constructor() {
     super();
     this.page = document.createElement("div");
     this.abortController = new AbortController();
+    this.HeroAnimated = false;
+    this.Hero = new Hero();
   }
   async render() {
     try {
@@ -26,7 +27,6 @@ export default class Home extends Component {
       const reviews = reviewsData.map((r) => reviewCard(r));
 
       this.page.innerHTML = `
-        ${hero()}
         <div class="container">
         
           <h1 class="heading separator-label">NEW ARRIVALS</h1>
@@ -42,14 +42,14 @@ export default class Home extends Component {
           ${categoryGrid()}
           
           <h1 class="heading ">OUR HAPPY CUSTOMERS</h1>
-          
-          
-          
+        
           </div>
           <div class="reviews-container">
             ${reviews.slice(0, 12).join("")}
           </div>
       `;
+      this.page.prepend(this.Hero.render());
+
       return this.page;
     } catch (error) {
       console.log(error);
