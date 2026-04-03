@@ -1,3 +1,5 @@
+import Loader from "../components/loader/loader.js";
+
 // routing
 const routes = {
   "/": () => import("../pages/Home/Home.js"),
@@ -18,7 +20,7 @@ export const renderPage = async () => {
 
   // select view and render a loader
   const view = document.getElementById("view");
-  view.innerHTML = `<div class="loader">Loading…</div>`;
+  view.innerHTML = Loader();
 
   // capture the pathname and import page module
   const path = window.location.pathname;
@@ -35,6 +37,10 @@ export const renderPage = async () => {
   // clean DOM and render new page content
   view.innerHTML = "";
   view.appendChild(pageContent);
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
 };
 
 export const initRouter = async () => {

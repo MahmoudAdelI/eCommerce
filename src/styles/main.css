@@ -8,6 +8,7 @@
 
 /* 3. Import Components styles */
 @import url("../components/grid/grid.css");
+@import url("../components/loader/loader.styles.css");
 @import url("../components/navBar/navBar.styles.css");
 @import url("../components/productCard/productCard.styles.css");
 @import url("../components/review/reviewCard.styles.css");
