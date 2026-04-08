@@ -1,0 +1,27 @@
+.product {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  border-radius: 1rem;
+  height: 60vh;
+}
+.product__reviews-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 2rem 0;
+}
+.product__reviews-title {
+  font-weight: var(--weight-bold);
+  font-size: 1.5rem;
+  line-height: 1;
+}
+.product__reviews-count {
+  color: var(--text-muted);
+}
+.product__reviews-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}

@@ -4,7 +4,7 @@ import Loader from "../components/loader/loader.js";
 const routes = {
   "/": () => import("../pages/Home/Home.js"),
   "/products": () => import("../pages/Products/Products.js"),
-  "/product": () => import("../pages/ProductDetails/ProductDetails.js"),
+  "/product": () => import("../pages/Product/Product.js"),
   "/cart": () => import("../pages/Cart/Cart.js"),
 };
 

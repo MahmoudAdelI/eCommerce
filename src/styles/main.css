@@ -20,7 +20,9 @@
 @import url("../pages/Home/components/hero/hero.styles.css");
 @import url("../pages/Home/components/categoryGrid/categoryGrid.styles.css");
 @import url("../pages/Products/components/filter/filter.styles.css");
-@import url("../pages/ProductDetails/productDetails.styles.css");
+@import url("../pages/Product/Product.styles.css");
+@import url("../pages/Product/components/productImages/productImages.styles.css");
+@import url("../pages/Product/components/productDetails/productDetails.styles.css");
 @import url("../pages/Cart/Cart.styles.css");
 @import url("../pages/Cart/cartSummary/cartSummary.styles.css");
 

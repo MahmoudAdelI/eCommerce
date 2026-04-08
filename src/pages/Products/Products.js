@@ -24,7 +24,7 @@ export default class Products extends Component {
 
   async render() {
     try {
-      const signal = this.abortController.signal;
+      const { signal } = this.abortController;
 
       const [categories, products] = await Promise.all([
         fetchCategories(signal),

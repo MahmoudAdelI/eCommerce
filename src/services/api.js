@@ -14,6 +14,18 @@ export async function fetchProducts(signal, searchQuery) {
   }
 }
 
+export async function fetchProductById(id, signal) {
+  try {
+    const res = await fetch(`https://dummyjson.com/products/${id}`, {
+      signal,
+    });
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 export async function fetchCategories(signal) {
   try {
     const res = await fetch("https://dummyjson.com/products/category-list", {
